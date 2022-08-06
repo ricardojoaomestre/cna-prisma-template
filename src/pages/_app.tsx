@@ -6,7 +6,7 @@ import { AppProps } from 'next/app'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Container>
+      <Container maxW='container.lg'>
       <Component {...pageProps} />
       </Container>
     </ChakraProvider>
