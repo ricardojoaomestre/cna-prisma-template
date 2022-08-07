@@ -9,7 +9,7 @@ const getAll = async () => {
   return users;
 }
 
-const getById = async(id) => {
+const getById = async(id: number) => {
 
   const user = await prisma.user.findUnique({where: {id: id}})
 

@@ -1,15 +1,15 @@
-import { DeleteIcon } from '@chakra-ui/icons';
-import { Avatar, IconButton, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+import { ViewIcon } from '@chakra-ui/icons';
+import { Avatar, HStack, IconButton, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 import { User } from '@types'
+import Link from 'next/link';
 import React from 'react'
 
 interface Props {
   users: User[];
-  onDelete: (id: number) => void;
 }
 
 function UserTable(props: Props) {
-  const {users, onDelete} = props
+  const {users} = props
 
   return (
     <TableContainer>
@@ -33,7 +33,13 @@ function UserTable(props: Props) {
                 <Td>{user.firstName}</Td>
                 <Td>{user.lastName}</Td>
                 <Td>{user.email}</Td>
-                <Td><IconButton aria-label='Delete user' icon={<DeleteIcon />} onClick={() => onDelete(user.id)} /></Td>
+                <Td>
+                  <HStack gap={2}>
+                    <Link href={`/users/${user.id}`}>
+                      <IconButton aria-label='User details' icon={<ViewIcon />} />
+                    </Link>
+                  </HStack>
+                </Td>
               </Tr>
             ))}
           </Tbody>

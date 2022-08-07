@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <Container maxW='container.lg'>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
       </Container>
     </ChakraProvider>
   )
