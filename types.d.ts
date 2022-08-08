@@ -1,3 +1,5 @@
+import { IconType } from 'react-icons/lib';
+
 export type User = {
   id?: number;
   firstName: string;
@@ -8,6 +10,6 @@ export type User = {
 
 export type TechInfo = {
   name: string;
-  description?: string;
+  icon: IconType;
   link: string;
 };

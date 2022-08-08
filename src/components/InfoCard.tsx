@@ -1,15 +1,10 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { Box, Grid, Link, Text } from '@chakra-ui/react';
+import { Box, Grid, Icon, Link, Text } from '@chakra-ui/react';
+import { TechInfo } from '@types';
 import React from 'react';
 
-interface Props {
-  name: string;
-  description?: string;
-  link: string;
-}
-
-function InfoCard(props: Props) {
-  const { name, description, link } = props;
+function InfoCard(props: TechInfo) {
+  const { name, icon, link } = props;
 
   return (
     <Grid
@@ -19,24 +14,15 @@ function InfoCard(props: Props) {
       px={8}
       textAlign="center"
       alignItems={'center'}
-      rounded={8}
-      background={'messenger.600'}
-      textColor={'white'}
     >
       <Box>
-        <Text fontSize={'lg'} fontWeight="bold">
-          {name}
-        </Text>
-        {description && (
-          <Text size={'md'} color={'gray.600'}>
-            {description}
+        <Icon as={icon} fontSize={60} mb={4} />
+        <Link href={link}>
+          <Text fontSize={30} fontWeight="bold">
+            {name}
           </Text>
-        )}
+        </Link>
       </Box>
-      <Link href={link}>
-        <ExternalLinkIcon />
-        Link
-      </Link>
     </Grid>
   );
 }

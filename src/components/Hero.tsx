@@ -1,24 +1,24 @@
-import { Button, Flex, Heading, Text } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Link, Code, Flex, Heading, Text } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
-interface Props {
-  title: string;
-  subtitle?: string;
-}
-
-export const Hero = (props: Props) => {
-  const { title, subtitle } = props;
-  return (
-    <Flex justifyContent="center" alignItems="center" direction="column" textAlign="center">
-      <Heading fontSize={'6xl'}>{title}</Heading>
-      <Text fontSize={'xl'} mt={4} mb={14} color={'gray.700'}>
-        {subtitle}
-      </Text>
-      <Link href="/users">
-        <Button size={'lg'} colorScheme="blackAlpha">
-          Check Users
-        </Button>
-      </Link>
-    </Flex>
-  );
-};
+export const Hero = () => (
+  <Flex justifyContent="center" alignItems="center" direction="column" textAlign="center">
+    <Heading
+      fontSize={'8xl'}
+      fontWeight={'extrabold'}
+      lineHeight={'none'}
+      color={'gray.900'}
+      mb={8}
+    >
+      Create NextJs App Template
+    </Heading>
+    <Text fontSize={'lg'} mt={4} mb={10} color={'gray.700'}>
+      A NextJS template project based on <Code>create-next-app</Code> with some pre-installed useful
+      perks! Check{' '}
+      <NextLink href="/users">
+        <Link>this link</Link>
+      </NextLink>
+      .
+    </Text>
+  </Flex>
+);
