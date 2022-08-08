@@ -1,6 +1,6 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react';
 
-const fonts = { mono: `'Menlo', monospace` }
+const fonts = { mono: `'Menlo', monospace` };
 
 const theme = extendTheme({
   semanticTokens: {
@@ -9,13 +9,11 @@ const theme = extendTheme({
         default: '#16161D',
         _dark: '#ade3b8',
       },
-      heroGradientStart: {
-        default: '#7928CA',
-        _dark: '#e3a7f9',
+      bodyGradientStart: {
+        default: '#2c3e50',
       },
-      heroGradientEnd: {
-        default: '#FF0080',
-        _dark: '#fbec8f',
+      bodyGradientEnd: {
+        default: '#3498db',
       },
     },
     radii: {
@@ -26,12 +24,12 @@ const theme = extendTheme({
     black: '#16161D',
   },
   fonts,
-  breakpoints:{
+  breakpoints: {
     sm: '40em',
     md: '52em',
     lg: '64em',
     xl: '80em',
-  }
-})
+  },
+});
 
-export default theme
+export default theme;
