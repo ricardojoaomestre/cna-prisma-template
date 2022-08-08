@@ -1,7 +1,7 @@
 import { Link, Code, Flex, Heading, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
-export const Hero = () => (
+const Hero = () => (
   <Flex justifyContent="center" alignItems="center" direction="column" textAlign="center">
     <Heading
       fontSize={'8xl'}
@@ -16,9 +16,13 @@ export const Hero = () => (
       A NextJS template project based on <Code>create-next-app</Code> with some pre-installed useful
       perks! Check{' '}
       <NextLink href="/users">
-        <Link>this link</Link>
+        <Link color={'orange'} fontWeight={'semibold'}>
+          this link
+        </Link>
       </NextLink>
       .
     </Text>
   </Flex>
 );
+
+export default Hero;

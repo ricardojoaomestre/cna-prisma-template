@@ -9,19 +9,23 @@ import {
   VStack,
   HStack,
   Flex,
+  Container,
 } from '@chakra-ui/react';
+import BaseLayout from '@components/layouts';
+import AppLayout from '@components/layouts/AppLayout';
 import { userApi } from '@helpers/userApi';
 import { userController } from '@helpers/userController';
 import { User } from '@types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { ReactElement } from 'react';
+import { NextPageWithLayout } from '../_app';
 
 interface Props {
   user: User;
 }
 
-function UserDetails(props: Props) {
+const UserDetails: NextPageWithLayout = (props: Props) => {
   const { user } = props;
   const toast = useToast();
   const router = useRouter();
@@ -48,7 +52,7 @@ function UserDetails(props: Props) {
   };
 
   return (
-    <Box mt={20}>
+    <Box mt={32}>
       <Flex
         direction={'column'}
         bgColor="InfoBackground"
@@ -74,7 +78,17 @@ function UserDetails(props: Props) {
       </Flex>
     </Box>
   );
-}
+};
+
+UserDetails.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <BaseLayout>
+      <AppLayout>
+        <Container maxW={'container.md'}>{page}</Container>
+      </AppLayout>
+    </BaseLayout>
+  );
+};
 
 export default UserDetails;
 

@@ -1,26 +1,28 @@
 import {
   Box,
   Button,
+  Container,
   FormLabel,
   Heading,
   HStack,
   Input,
   Link,
-  Text,
   useToast,
 } from '@chakra-ui/react';
 import { userApi } from '@helpers/userApi';
 import { User } from '@types';
 import { Formik, Form, Field } from 'formik';
 import { useRouter } from 'next/router';
-import NextLink from 'next/link';
-import { ArrowLeftIcon } from '@chakra-ui/icons';
+import BaseLayout from '@components/layouts';
+import AppLayout from '@components/layouts/AppLayout';
+import { ReactElement } from 'react';
+import { NextPageWithLayout } from '../_app';
 
 interface Props {
   id?: number;
 }
 
-function AddEditUser(props: Props) {
+const AddEditUser: NextPageWithLayout = (props: Props) => {
   const { id } = props;
   const isCreateUser = !id;
   const toast = useToast();
@@ -53,17 +55,7 @@ function AddEditUser(props: Props) {
   };
 
   return (
-    <Box mt={20}>
-      <Box mb={6}>
-        <NextLink href="/">
-          <Link>
-            <HStack>
-              <ArrowLeftIcon />
-              <Text>Back to homepage</Text>
-            </HStack>
-          </Link>
-        </NextLink>
-      </Box>
+    <Box mt={32}>
       <Heading as="h2" fontSize={'3xl'} mb={10}>
         {isCreateUser ? 'New User' : 'Edit User'}
       </Heading>
@@ -95,6 +87,16 @@ function AddEditUser(props: Props) {
       </Formik>
     </Box>
   );
-}
+};
+
+AddEditUser.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <BaseLayout>
+      <AppLayout>
+        <Container maxW={'container.md'}>{page}</Container>
+      </AppLayout>
+    </BaseLayout>
+  );
+};
 
 export default AddEditUser;
