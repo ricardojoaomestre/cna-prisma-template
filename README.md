@@ -1,4 +1,4 @@
-# Example app with [chakra-ui](https://github.com/chakra-ui/chakra-ui) and TypeScript
+# Create NextJs App Template
 
 This example features how to use [chakra-ui](https://github.com/chakra-ui/chakra-ui) as the component library within a Next.js app with TypeScript.
 
@@ -8,17 +8,9 @@ We are connecting the Next.js `_app.js` with `chakra-ui`'s Provider and theme so
 
 ## Prisma with Sqlite
 
-This example is also ready to use prisma for db support.
+This example also brings [prisma](https://www.prisma.io/) ORM configured to use SQLite database.
 
-```
-npm i -D prisma
-```
-
-```
-npx primsa init --datasource-provider sqlite
-```
-
-Then create a model in `prisma/schema.prisma`. This brings a simple `User` example.
+As an example it already brings a model defined in `prisma/schema.prisma`.
 
 ```prisma
 model User {
@@ -26,10 +18,10 @@ model User {
   firstName String
   lastName  String
   email     String
-  avatar    String @default("https://avatars.dicebear.com/api/pixel-art-neutral/user.svg")
+  avatar    String @default("https://avatars.dicebear.com/api/bottts/user.svg")
 }
 ```
 
-```
-npx prisma migrate dev --name init
-```
+## Formik
+
+If your app will use forms this is the most popular open source form library for React. [Formik](https://formik.org/) comes with battle-tested solutions for input validation, formatting, masking, arrays, and error handling.
